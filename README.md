@@ -9,4 +9,6 @@ Calculator desktop app with electron
 - run `npm start` for running the app
 - run `npm run dev` for running webpack
 
+## Screenshot
+
 ![Screenshot](https://raw.githubusercontent.com/DCKT/electron-calculator/master/media/screen.PNG)
