@@ -8,3 +8,5 @@ Calculator desktop app with electron
 - `npm i -g electron-prebuilt`
 - run `npm start` for running the app
 - run `npm run dev` for running webpack
+
+![Screenshot]()
