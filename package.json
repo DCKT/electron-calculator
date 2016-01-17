@@ -1,18 +1,18 @@
 {
-  "name": "calc",
-  "productName": "Calc",
+  "name": "electron-calculator",
+  "productName": "electron-calculator",
   "version": "0.0.0",
-  "description": "My cool app",
+  "description": "Calculator desktop app with electron ",
   "license": "MIT",
-  "repository": "DCKT/calc",
+  "repository": "DCKT/electron-calculator",
   "author": {
     "name": "Thomas Deconinck",
-    "email": "dck@outlook.fré",
+    "email": "dck@outlook.fr",
     "url": "thomasdeconinck.fr"
   },
   "electronVersion": "0.36.0",
   "scripts": {
-    "test": "xo",
+    "dev": "./node_modules/.bin/webpack -w",
     "start": "electron .",
     "build": "electron-packager . $npm_package_productName --out=dist --ignore='^/dist$' --prune --asar --all --version=$npm_package_electronVersion"
   },
@@ -41,14 +41,6 @@
     "vue-html-loader": "^1.1.0",
     "vue-loader": "^8.0.2",
     "vue-style-loader": "^1.0.0",
-    "webpack": "^1.12.11",
-    "xo": "^0.12.0"
-  },
-  "xo": {
-    "esnext": true,
-    "envs": [
-      "node",
-      "browser"
-    ]
+    "webpack": "^1.12.11"
   }
 }
