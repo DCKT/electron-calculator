@@ -49,6 +49,19 @@
 <script>
 import CalcStore from '../stores/CalcStore.js';
 
+document.addEventListener('keyup', function(e) {
+  const numberValue = CalcStore.numberCode[e.keyCode];
+  const actionValue = CalcStore.actionCode[e.keyCode];
+  
+
+  if (numberValue) {
+    CalcStore.updateValue(numberValue);
+  }
+  else if (actionValue) {
+    CalcStore.updateAction(actionValue);
+  }
+});
+
 export default {
   methods: {
     updateScreen(e) {
