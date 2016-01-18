@@ -52,7 +52,6 @@ import CalcStore from '../stores/CalcStore.js';
 document.addEventListener('keyup', function(e) {
   const numberValue = CalcStore.numberCode[e.keyCode];
   const actionValue = CalcStore.actionCode[e.keyCode];
-  
 
   if (numberValue) {
     CalcStore.updateValue(numberValue);
@@ -66,7 +65,6 @@ export default {
   methods: {
     updateScreen(e) {
       const value = e.target.innerText;
-
       CalcStore.updateValue(value);
     }
   }

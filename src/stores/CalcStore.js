@@ -19,6 +19,8 @@ const numberCode = {
   104: 8,
   105: 9,
   96: 0,
+  110: '.',
+  190: '.',
 };
 
 const actionCode = {
@@ -31,6 +33,7 @@ const actionCode = {
   220: '*',
   187: '+',
   54: '-',
+  8: 'reset',
 };
 
 export default {
@@ -64,23 +67,32 @@ export default {
     }
   },
 
-  updateAction(action) {
-    if (action == "=") {
-      this.calculate();
+  updateAction(newAction) {
+    var { value, waitingValue, action } = this.state;
+    waitingValue                          = parseFloat(waitingValue);
+
+    if (newAction == 'reset') {
+      this.state.value        = 0;
+      this.state.waitingValue = 0;
+      this.state.action       = null;
+    }
+    else if (newAction == '=') {
+      if (!waitingValue) return;
+      this.state.value        = this.calculate();
+      this.state.waitingValue = 0;
+      this.state.action       = null;
     }
     else {
-      this.state.waitingValue = this.state.value;
-      this.state.action = action;
-      this.state.value = 0;
+      this.state.waitingValue = waitingValue ? this.calculate() : value;
+      this.state.action       = newAction;
+      this.state.value        = 0;
     }
   },
   calculate() {
     const { value, waitingValue, action } = this.state;
 
-    this.state.value = calculator(action, waitingValue, value);
-    this.state.waitingValue = 0;
-    this.state.action = null;
-  }
+    return calculator(action, waitingValue, value);
+  },
 }
 
 function calculator(action, a, b) {
